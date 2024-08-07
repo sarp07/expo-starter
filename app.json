@@ -21,7 +21,8 @@
 				"foregroundImage": "./assets/images/adaptive-icon.png",
 				"backgroundColor": "#ffffff"
 			},
-			"package": "com.thirdweb.demo"
+			"package": "com.thirdweb.demo",
+			"jsEngine": "jsc"
 		},
 		"web": {
 			"bundler": "metro",
