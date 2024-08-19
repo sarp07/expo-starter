@@ -12,12 +12,19 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RNCamera } from "react-native-camera";
+import { prepareTransaction, toWei } from "thirdweb";
+import { toEther } from "thirdweb/utils";
+import { useWallet } from "../context/walletProvider";
+import { client } from "../../constants/thirdweb";
+import { useEstimateGas } from "thirdweb/react";
 
 type SendEnterAmountProps = {
   navigation: StackNavigationProp<any>;
 };
 
+
 const SendEnterAmount: React.FC<SendEnterAmountProps> = ({ navigation }) => {
+  const { chain, account,  } = useWallet();
   const [amount, setAmount] = useState<string>("0");
   const [walletAddress, setWalletAddress] = useState<string>("");
   const [scanning, setScanning] = useState<boolean>(false);
